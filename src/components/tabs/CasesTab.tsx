@@ -7,7 +7,7 @@ import { Package, Rocket, Flame, Crown, ShieldCheck, Gem, Star, Zap, Sparkles, D
 const cases = [
   { 
     id: 1, 
-    name: "Стальной хищник", 
+    name: "Ржавый зверь", 
     price: 10, 
     icon: Package,
     items: [

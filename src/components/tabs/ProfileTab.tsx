@@ -4,11 +4,11 @@ import { User, Wallet, Package } from "lucide-react";
 
 // Моковые данные для инвентаря
 const inventoryItems = [
-  { id: 1, name: "AK-47 | Redline", price: 750, rarity: "legendary", date: "15.08.2023" },
-  { id: 2, name: "AWP | Asiimov", price: 2100, rarity: "ancient", date: "20.08.2023" },
-  { id: 3, name: "USP-S | Kill Confirmed", price: 1200, rarity: "legendary", date: "25.08.2023" },
-  { id: 4, name: "Glock-18 | Water Elemental", price: 300, rarity: "rare", date: "30.08.2023" },
-  { id: 5, name: "Desert Eagle | Blaze", price: 3000, rarity: "ancient", date: "05.09.2023" }
+  { id: 1, name: "AK-47 | Redline", price: 750, rarity: "legendary", date: "15.08.2023", image: "https://wiki.cs.money/images/skin/wgY2lwzGZGI478g0O5OfK.png" },
+  { id: 2, name: "AWP | Asiimov", price: 2100, rarity: "ancient", date: "20.08.2023", image: "https://wiki.cs.money/images/skin/ZnykbjrznKfQ0jZ8jzvym.png" },
+  { id: 3, name: "USP-S | Kill Confirmed", price: 1200, rarity: "legendary", date: "25.08.2023", image: "https://wiki.cs.money/images/skin/elO4vO38gniyJ7JYLW753.png" },
+  { id: 4, name: "Glock-18 | Water Elemental", price: 300, rarity: "rare", date: "30.08.2023", image: "https://wiki.cs.money/images/skin/mq1pEOm2GLCzwVZmO40PM.png" },
+  { id: 5, name: "Desert Eagle | Blaze", price: 3000, rarity: "ancient", date: "05.09.2023", image: "https://wiki.cs.money/images/skin/Pxw3Y8w4ykfykQZ1zmrDL.png" }
 ];
 
 const ProfileTab = () => {
@@ -123,6 +123,13 @@ const ProfileTab = () => {
                   item.rarity === "legendary" ? "cs-item-legendary" : "cs-item-ancient"
                 }`}
               >
+                <div className="h-24 flex items-center justify-center mb-2">
+                  <img 
+                    src={item.image} 
+                    alt={item.name} 
+                    className="h-full w-auto object-contain" 
+                  />
+                </div>
                 <div className="text-sm font-medium mb-1">{item.name}</div>
                 <div className="flex justify-between items-center">
                   <div className="text-xs">{item.price} ₽</div>

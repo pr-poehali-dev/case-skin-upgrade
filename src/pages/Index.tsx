@@ -3,17 +3,9 @@ import MainTabs from "@/components/MainTabs";
 
 const Index = () => {
   return (
-    <div className="min-h-screen flex flex-col">
+    <div className="min-h-screen bg-gradient-to-r from-amber-50 to-orange-50">
       <MainHeader />
-      <main className="flex-1 py-4">
-        <MainTabs />
-      </main>
-      <footer className="border-t py-4 bg-white/20 backdrop-blur-sm">
-        <div className="container text-center text-sm text-muted-foreground">
-          <p>© 2023 CS:GO Кейсы. Все права защищены.</p>
-          <p className="mt-1">Этот сайт не связан с Valve Corporation.</p>
-        </div>
-      </footer>
+      <MainTabs />
     </div>
   );
 };

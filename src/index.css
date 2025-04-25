@@ -4,83 +4,35 @@
 
 @layer base {
   :root {
-    --background: 40 100% 97%;
-    --foreground: 20 10% 10%;
-
+    --background: 35 100% 98%;
+    --foreground: 30 10% 15%;
+    
     --card: 0 0% 100%;
-    --card-foreground: 20 10% 10%;
-
+    --card-foreground: 30 10% 15%;
+    
     --popover: 0 0% 100%;
-    --popover-foreground: 20 10% 10%;
-
-    --primary: 40 100% 50%;
-    --primary-foreground: 210 40% 98%;
-
-    --secondary: 30 100% 50%;
-    --secondary-foreground: 210 40% 98%;
-
-    --muted: 40 30% 96%;
-    --muted-foreground: 20 10% 40%;
-
-    --accent: 20 100% 50%;
-    --accent-foreground: 210 40% 98%;
-
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
-
-    --border: 20 10% 80%;
-    --input: 20 10% 80%;
-    --ring: 24 75% 50%;
-
+    --popover-foreground: 30 10% 15%;
+    
+    --primary: 35 92% 55%;
+    --primary-foreground: 40 70% 97%;
+    
+    --secondary: 37 60% 95%;
+    --secondary-foreground: 30 10% 15%;
+    
+    --muted: 30 10% 96%;
+    --muted-foreground: 35 10% 40%;
+    
+    --accent: 25 90% 55%;
+    --accent-foreground: 40 70% 97%;
+    
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 98%;
+    
+    --border: 30 15% 90%;
+    --input: 30 15% 90%;
+    --ring: 35 90% 50%;
+    
     --radius: 0.5rem;
-
-    --sidebar-background: 40 100% 97%;
-    --sidebar-foreground: 20 10% 10%;
-    --sidebar-primary: 30 100% 50%;
-    --sidebar-primary-foreground: 0 0% 98%;
-    --sidebar-accent: 20 100% 50%;
-    --sidebar-accent-foreground: 0 0% 98%;
-    --sidebar-border: 20 10% 80%;
-    --sidebar-ring: 24 75% 50%;
-  }
-
-  .dark {
-    --background: 20 10% 10%;
-    --foreground: 40 100% 97%;
-
-    --card: 20 10% 10%;
-    --card-foreground: 40 100% 97%;
-
-    --popover: 20 10% 10%;
-    --popover-foreground: 40 100% 97%;
-
-    --primary: 40 100% 50%;
-    --primary-foreground: 20 10% 10%;
-
-    --secondary: 30 100% 50%;
-    --secondary-foreground: 20 10% 10%;
-
-    --muted: 20 10% 20%;
-    --muted-foreground: 20 10% 60%;
-
-    --accent: 20 100% 50%;
-    --accent-foreground: 20 10% 10%;
-
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 40 100% 97%;
-
-    --border: 20 10% 30%;
-    --input: 20 10% 30%;
-    --ring: 24 75% 50%;
-
-    --sidebar-background: 20 10% 10%;
-    --sidebar-foreground: 40 100% 97%;
-    --sidebar-primary: 30 100% 50%;
-    --sidebar-primary-foreground: 20 10% 10%;
-    --sidebar-accent: 20 100% 50%;
-    --sidebar-accent-foreground: 20 10% 10%;
-    --sidebar-border: 20 10% 30%;
-    --sidebar-ring: 24 75% 50%;
   }
 }
 
@@ -88,70 +40,53 @@
   * {
     @apply border-border;
   }
-
   body {
-    @apply bg-background text-foreground;
-    background: linear-gradient(135deg, hsl(40, 100%, 97%) 0%, hsl(30, 100%, 80%) 100%);
-    min-height: 100vh;
+    @apply bg-gradient-to-r from-amber-50 to-orange-50 text-foreground;
   }
 }
 
 @layer components {
-  .case-card {
-    @apply relative overflow-hidden border border-border/50 bg-gradient-to-br from-orange-400/10 to-yellow-300/20 shadow-lg transition-all hover:shadow-xl;
-    backdrop-filter: blur(10px);
-  }
-  
   .cs-item {
-    @apply relative overflow-hidden border border-border/50 rounded-md p-3 transition-all;
+    @apply rounded-md p-3 shadow-md border border-border/50 bg-white/70 backdrop-blur-sm transition-all duration-200;
   }
   
   .cs-item-common {
-    @apply bg-gradient-to-br from-gray-100 to-gray-200 text-gray-700;
+    @apply border-gray-300 bg-gradient-to-br from-gray-200/50 to-gray-100/50;
   }
   
   .cs-item-uncommon {
-    @apply bg-gradient-to-br from-blue-100 to-blue-200 text-blue-700;
+    @apply border-blue-300 bg-gradient-to-br from-blue-200/50 to-blue-100/50;
   }
   
   .cs-item-rare {
-    @apply bg-gradient-to-br from-purple-100 to-purple-200 text-purple-700;
+    @apply border-csgo-blue/30 bg-gradient-to-br from-csgo-blue/20 to-csgo-blue/5;
   }
   
   .cs-item-mythical {
-    @apply bg-gradient-to-br from-pink-100 to-pink-200 text-pink-700;
+    @apply border-csgo-purple/30 bg-gradient-to-br from-csgo-purple/20 to-csgo-purple/5;
   }
   
   .cs-item-legendary {
-    @apply bg-gradient-to-br from-yellow-100 to-yellow-200 text-yellow-700;
+    @apply border-csgo-pink/30 bg-gradient-to-br from-csgo-pink/20 to-csgo-pink/5;
   }
   
   .cs-item-ancient {
-    @apply bg-gradient-to-br from-red-100 to-red-200 text-red-700;
+    @apply border-csgo-red/30 bg-gradient-to-br from-csgo-red/20 to-csgo-red/5;
   }
   
-  .tabs-container {
-    @apply overflow-hidden bg-white/20 backdrop-blur-lg border border-border/50 shadow-lg rounded-xl;
+  .case-card {
+    @apply cursor-pointer transition-all duration-200 hover:shadow-lg hover:scale-105;
   }
   
   .spin-wheel {
-    @apply relative border-4 border-accent shadow-lg rounded-full overflow-hidden p-1;
-    background: conic-gradient(
-      from 0deg,
-      #ff4e50,
-      #fc913a,
-      #f9d423,
-      #ede574,
-      #e1f5c4,
-      #e1f5c4,
-      #ede574,
-      #f9d423,
-      #fc913a,
-      #ff4e50
-    );
+    @apply relative rounded-full bg-gradient-to-br from-orange-500 to-yellow-300 overflow-hidden shadow-lg border-4 border-white/50;
   }
   
   .spin-wheel-inner {
-    @apply bg-background/90 backdrop-blur-sm rounded-full;
+    @apply relative rounded-full bg-white/80 backdrop-blur-md border-2 border-white/80 overflow-hidden;
+  }
+  
+  .upgrade-coin {
+    @apply animate-spin-slow;
   }
 }

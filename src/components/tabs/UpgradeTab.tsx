@@ -6,19 +6,19 @@ import { RotateCcw, ChevronRight, Zap } from "lucide-react";
 
 // Моковые данные для апгрейда
 const availableItems = [
-  { id: 1, name: "AK-47 | Redline", price: 750, rarity: "legendary" },
-  { id: 2, name: "Glock-18 | Water Elemental", price: 300, rarity: "rare" },
-  { id: 3, name: "USP-S | Kill Confirmed", price: 1200, rarity: "legendary" },
-  { id: 4, name: "Desert Eagle | Blaze", price: 3000, rarity: "ancient" },
-  { id: 5, name: "AWP | Asiimov", price: 2100, rarity: "ancient" }
+  { id: 1, name: "AK-47 | Redline", price: 750, rarity: "legendary", image: "https://wiki.cs.money/images/skin/wgY2lwzGZGI478g0O5OfK.png" },
+  { id: 2, name: "Glock-18 | Water Elemental", price: 300, rarity: "rare", image: "https://wiki.cs.money/images/skin/mq1pEOm2GLCzwVZmO40PM.png" },
+  { id: 3, name: "USP-S | Kill Confirmed", price: 1200, rarity: "legendary", image: "https://wiki.cs.money/images/skin/elO4vO38gniyJ7JYLW753.png" },
+  { id: 4, name: "Desert Eagle | Blaze", price: 3000, rarity: "ancient", image: "https://wiki.cs.money/images/skin/Pxw3Y8w4ykfykQZ1zmrDL.png" },
+  { id: 5, name: "AWP | Asiimov", price: 2100, rarity: "ancient", image: "https://wiki.cs.money/images/skin/ZnykbjrznKfQ0jZ8jzvym.png" }
 ];
 
 const targetItems = [
-  { id: 101, name: "M4A4 | Howl", price: 3000, rarity: "legendary" },
-  { id: 102, name: "AWP | Dragon Lore (BS)", price: 4000, rarity: "ancient" },
-  { id: 103, name: "Butterfly Knife | Fade", price: 4500, rarity: "ancient" },
-  { id: 104, name: "M9 Bayonet | Crimson Web", price: 6000, rarity: "ancient" },
-  { id: 105, name: "AK-47 | Fire Serpent", price: 2000, rarity: "legendary" },
+  { id: 101, name: "M4A4 | Howl", price: 3000, rarity: "legendary", image: "https://wiki.cs.money/images/skin/jvZVAd2RlKHQxaKrG0Mz3.png" },
+  { id: 102, name: "AWP | Dragon Lore (BS)", price: 4000, rarity: "ancient", image: "https://wiki.cs.money/images/skin/OeB9y3jA3kIwnYrjNBMLZ.png" },
+  { id: 103, name: "Butterfly Knife | Fade", price: 4500, rarity: "ancient", image: "https://wiki.cs.money/images/skin/GlW78Q9eQYTEaL6n3NnM2.png" },
+  { id: 104, name: "M9 Bayonet | Crimson Web", price: 6000, rarity: "ancient", image: "https://wiki.cs.money/images/skin/1qpwz7nX3PTpOmXa7X1qK.png" },
+  { id: 105, name: "AK-47 | Fire Serpent", price: 2000, rarity: "legendary", image: "https://wiki.cs.money/images/skin/R1wzjdjnYnuPB5gMOZOgE.png" },
 ];
 
 const UpgradeTab = () => {
@@ -79,8 +79,15 @@ const UpgradeTab = () => {
                   } ${selectedItem === item.id ? "ring-2 ring-primary" : ""}`}
                   onClick={() => setSelectedItem(item.id)}
                 >
-                  <div className="text-sm font-medium mb-1">{item.name}</div>
-                  <div className="text-xs">{item.price} ₽</div>
+                  <div className="flex items-center gap-2">
+                    <div className="h-10 w-10 flex-shrink-0">
+                      <img src={item.image} alt={item.name} className="h-full w-full object-contain" />
+                    </div>
+                    <div className="flex-1">
+                      <div className="text-sm font-medium mb-1">{item.name}</div>
+                      <div className="text-xs">{item.price} ₽</div>
+                    </div>
+                  </div>
                 </div>
               ))}
             </div>
@@ -169,8 +176,15 @@ const UpgradeTab = () => {
                   } ${targetItem === item.id ? "ring-2 ring-primary" : ""}`}
                   onClick={() => setTargetItem(item.id)}
                 >
-                  <div className="text-sm font-medium mb-1">{item.name}</div>
-                  <div className="text-xs">{item.price} ₽</div>
+                  <div className="flex items-center gap-2">
+                    <div className="h-10 w-10 flex-shrink-0">
+                      <img src={item.image} alt={item.name} className="h-full w-full object-contain" />
+                    </div>
+                    <div className="flex-1">
+                      <div className="text-sm font-medium mb-1">{item.name}</div>
+                      <div className="text-xs">{item.price} ₽</div>
+                    </div>
+                  </div>
                 </div>
               ))}
             </div>
@@ -187,8 +201,19 @@ const UpgradeTab = () => {
             availableItems.find(i => i.id === selectedItem)?.rarity === "mythical" ? "cs-item-mythical" :
             availableItems.find(i => i.id === selectedItem)?.rarity === "legendary" ? "cs-item-legendary" : "cs-item-ancient"
           }`}>
-            <div className="text-sm font-medium mb-1">{availableItems.find(i => i.id === selectedItem)?.name}</div>
-            <div className="text-xs">{availableItems.find(i => i.id === selectedItem)?.price} ₽</div>
+            <div className="flex items-center gap-2">
+              <div className="h-12 w-12 flex-shrink-0">
+                <img 
+                  src={availableItems.find(i => i.id === selectedItem)?.image} 
+                  alt={availableItems.find(i => i.id === selectedItem)?.name} 
+                  className="h-full w-full object-contain" 
+                />
+              </div>
+              <div>
+                <div className="text-sm font-medium mb-1">{availableItems.find(i => i.id === selectedItem)?.name}</div>
+                <div className="text-xs">{availableItems.find(i => i.id === selectedItem)?.price} ₽</div>
+              </div>
+            </div>
           </div>
           
           <div className="flex items-center gap-2">
@@ -203,8 +228,19 @@ const UpgradeTab = () => {
             targetItems.find(i => i.id === targetItem)?.rarity === "mythical" ? "cs-item-mythical" :
             targetItems.find(i => i.id === targetItem)?.rarity === "legendary" ? "cs-item-legendary" : "cs-item-ancient"
           }`}>
-            <div className="text-sm font-medium mb-1">{targetItems.find(i => i.id === targetItem)?.name}</div>
-            <div className="text-xs">{targetItems.find(i => i.id === targetItem)?.price} ₽</div>
+            <div className="flex items-center gap-2">
+              <div className="h-12 w-12 flex-shrink-0">
+                <img 
+                  src={targetItems.find(i => i.id === targetItem)?.image} 
+                  alt={targetItems.find(i => i.id === targetItem)?.name} 
+                  className="h-full w-full object-contain" 
+                />
+              </div>
+              <div>
+                <div className="text-sm font-medium mb-1">{targetItems.find(i => i.id === targetItem)?.name}</div>
+                <div className="text-xs">{targetItems.find(i => i.id === targetItem)?.price} ₽</div>
+              </div>
+            </div>
           </div>
         </div>
       )}
